@@ -21,10 +21,10 @@ class HighlightTest(unittest.TestCase):
     def tearDown(self):
         """This method is called after the test routine is finished
         to clear out the data created in setUp method."""
-        self.app = None
-        self.highlighted_text = None
-        self.text = None
-        self.search_text = None
+        del self.app
+        del self.highlighted_text
+        del self.text
+        del self.search_text
 
     def test_markup_text(self):
         """Test markup process"""
