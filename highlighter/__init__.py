@@ -5,6 +5,7 @@ author smith@example.com
 license: MIT"""
 
 from flask import Flask, render_template, request, Markup
+import re
 
 
 def create_app():
@@ -41,9 +42,9 @@ def create_app():
         @:param expr - string pattern to be searched in the text (e.g., 'th')
         @:return marked text, e.g., "<mark>Th</mark>e sun in <mark>th</mark>e sky"."""
         result = text
-
-        # TODO: add an implementation
-
+        matches = set(re.findall(expr, text, flags=re.IGNORECASE))
+        for m in matches:
+            result = re.sub(m, markup_text(m), result)
         return result
 
     return app
