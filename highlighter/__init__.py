@@ -32,10 +32,7 @@ def create_app():
         This is supplementary method that helps you to wrap marked text in tags.
         @:param text - string text to be marked
         @:return marked text, e.g., <mark>highlighted text</mark>."""
-        result = text
-
-        # TODO: add an implementation
-
+        result = """<mark>{0}</mark>""".format(text)
         return result
 
     def highlight_text(text, expr):
